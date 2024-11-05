@@ -518,9 +518,12 @@ function textSubmit(event) {
     event.preventDefault();
     event.currentTarget.reset();
     localStorage.removeItem(localKey);
+    console.log(formData);
+    formData = {};
 }
+let formData = {};
 function textInput(event) {
-    const formData = {
+    formData = {
         email: emailInput.value,
         message: textArea.value
     };
