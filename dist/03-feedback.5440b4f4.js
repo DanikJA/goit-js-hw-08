@@ -511,17 +511,16 @@ const form = document.querySelector(".feedback-form");
 const textArea = document.querySelector("textarea");
 const emailInput = document.querySelector("input[type='email']");
 populateTextarea();
+let formData = {};
 form.addEventListener("submit", textSubmit);
 textArea.addEventListener("input", (0, _lodashThrottleDefault.default)(textInput, 500));
 emailInput.addEventListener("input", (0, _lodashThrottleDefault.default)(textInput, 500));
 function textSubmit(event) {
     event.preventDefault();
     event.currentTarget.reset();
+    console.log(localStorage.getItem(localKey));
     localStorage.removeItem(localKey);
-    console.log(formData);
-    formData = {};
 }
-let formData = {};
 function textInput(event) {
     formData = {
         email: emailInput.value,

@@ -6,6 +6,8 @@ const textArea = document.querySelector("textarea");
 const emailInput = document.querySelector("input[type='email']");
 
 populateTextarea();
+let formData = {};
+
 
 form.addEventListener('submit', textSubmit);
 textArea.addEventListener('input', throttle(textInput, 500));
@@ -14,11 +16,10 @@ emailInput.addEventListener('input', throttle(textInput, 500));
 function textSubmit(event) {
     event.preventDefault();
     event.currentTarget.reset();
+    console.log(localStorage.getItem(localKey));
     localStorage.removeItem(localKey);
-    console.log(formData)
-    formData = {};
 }
-let formData = {};
+
 
 function textInput(event) {
      formData = {
@@ -32,7 +33,7 @@ function textInput(event) {
 function populateTextarea(){
     const savedMessage = localStorage.getItem(localKey);
     if (savedMessage) {
-       const { email, message } = JSON.parse(savedMessage);
+        const { email, message } = JSON.parse(savedMessage);
         textArea.value = message;
         emailInput.value = email;
     }
