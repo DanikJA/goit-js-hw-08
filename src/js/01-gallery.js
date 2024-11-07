@@ -8,7 +8,8 @@ console.log(galleryItems);
 import SimpleLightbox from "simplelightbox";
 // Додатковий імпорт стилів
 import "simplelightbox/dist/simple-lightbox.min.css";
-
+import '../css/01-gallery.css';
+import '../css/common.css';
 
 const galleryEl = document.querySelector('.gallery');
 const getEl = makeGallery(galleryItems);
